@@ -23,7 +23,7 @@ def job():
         semester_type_nextSemester = web_parser.get_semester_type(1)
         json_object_assembler(event_list_thisSemester, "thisSemester", semester_name_thisSemester)
         json_object_assembler(event_list_nextSemester, "nextSemester", semester_type_nextSemester)
-        create_ical(event_list_thisSemester)
+        create_ical(event_list_thisSemester + event_list_nextSemester)
         split_events(event_list_thisSemester)
         print("job run at", time.time())
 
