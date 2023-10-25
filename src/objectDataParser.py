@@ -13,8 +13,8 @@ def event_creator(data_list: list):
     return_list = []
     for value in data_list:
         event_filter = ["Einsichtnahme", "Antragsfrist", "Nach- und Umbelegung", "Antrag"]
-        # skip cells without data and unimportant data
-        if not value[1] or any([x in (value[0])[0] for x in event_filter]):
+        # skip cells without data and unwanted data
+        if not value[0] or not value[1] or any([x in (value[0])[0] for x in event_filter]) or "bekannt gegeben" in (value[1])[0]:
             continue
 
         new_event = event.event((value[0])[0])
